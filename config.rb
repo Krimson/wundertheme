@@ -4,7 +4,8 @@ require 'toolkit'
 require 'respond-to'
 
 # Output extra info for sourcemaps, now you see the scss info in the inspector.
-sass_options = { :debug_info => true }
+# sass_options = { :debug_info => true }
+# Don't default to this, use "compass compile --debug-info" locally instead
 
 # Set this to the root of your project when deployed:
 http_path = "/sites/all/themes/wundertheme/"
