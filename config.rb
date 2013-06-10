@@ -4,8 +4,8 @@ require 'toolkit'
 require 'respond-to'
 
 # Output extra info for sourcemaps, now you see the scss info in the inspector.
-# sass_options = { :debug_info => true }
-# Don't default to this, use "compass compile --debug-info" locally instead
+sass_options = (environment == :development) ? { :debug_info => true } : {}
+# Don't default to DEV settings. Instead, use "compass compile -e development" (defaults to production output)
 
 # Set this to the root of your project when deployed:
 http_path = "/sites/all/themes/wundertheme/"
@@ -16,9 +16,10 @@ javascripts_dir = "js"
 
 # You can select your preferred output style here (can be overridden via the command line):
 # output_style = :expanded or :nested or :compact or :compressed
+output_style = (environment == :development) ? :expanded : :compressed
 
 # To enable relative paths to assets via compass helper functions. Uncomment:
-# relative_assets = true
+relative_assets = true
 
 # To disable debugging comments that display the original location of your selectors. Uncomment:
 # line_comments = false
