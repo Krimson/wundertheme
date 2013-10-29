@@ -5,6 +5,7 @@
  */
 
 /* ---------- Compass Extensions ---------- */
+@import 'base/logic/variables';
 
 @import 'toolkit';
 @import 'susy';
@@ -20,14 +21,12 @@ $breakpoint-ie-output: false;
 
 /* ---------- Import base ---------- */
 
-@import 'base/logic/variables';
 @import 'base/logic/functions';
 @import 'base/logic/mixins';
 @import 'base/logic/normalize';
 @import 'base/logic/extendables';
 
 @import 'base/layout';
-@import 'base/colors';
 @import 'base/typography';
 @import 'base/design';
 

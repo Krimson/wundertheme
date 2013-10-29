@@ -2,33 +2,7 @@
  * Layout
  *
  * All layout theming should go in this file
- *
- *
- * Grid settings
- *
- * Set your base-font-size in typography.scss
- * Calculate your grid settings based on your base-font-size
- * Calculate your em's online: pxtoem.com
- * 
- * Ex: 12 col 960px 
- * Total:   960px = 60em          
- * Columns: 60px = 3.750em                    (x12  = 45em)
- * Gutters: 20px = 1.250em                    (x11  = 13.75em)
- * Grid padding: 10px = $gutter-width/2;      (x2   = 1.250em)
- *                                            ----------------
- *                                                    60em      
  */
-
-$total-columns: 12;
-$column-width: 3.750em;
-$gutter-width: 1.250em;
-$grid-padding: $gutter-width/2;
-
-
-/* Breakpoints */
-
-$breakpoint_1: 35em lt-ie9;
-$breakpoint_2: 55em lt-ie9;
 
 
 /* Layout */
