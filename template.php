@@ -108,6 +108,7 @@ function wundertheme_preprocess_html(&$variables, $hook) {
       'media' => 'print'
     )
   );
+  $variables['favicon'] = url($theme_path . '/favicon.ico');
 }
 
 /**

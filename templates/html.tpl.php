@@ -62,6 +62,9 @@
   <head>
     <title><?php print $head_title; ?></title>
     <?php print $head; ?>
+    <?php if (isset($favicon)) { ?>
+        <link rel="Shortcut Icon" type="image/ico" href="<?php print $favicon; ?>" />
+    <?php } ?>
     <meta name="MobileOptimized" content="width">
     <meta name="HandheldFriendly" content="true">
     <meta name="viewport" content="width=device-width, initial-scale=1">
