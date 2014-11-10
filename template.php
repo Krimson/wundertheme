@@ -108,7 +108,7 @@ function wundertheme_preprocess_html(&$variables, $hook) {
       'media' => 'print'
     )
   );
-  $variables['favicon'] = url($theme_path . '/favicon.ico');
+  $variables['favicon'] = url($theme_path . '/favicon.ico?v=' . md5_file($theme_path . '/favicon.ico'));
 }
 
 /**
@@ -176,6 +176,20 @@ function wundertheme_preprocess_button(&$variables) {
         $variables['element']['#attributes']['class'][] = $class;
         break;
       }
+    }
+  }
+}
+
+/**
+ * Implements hook_html_head_alter().
+ *
+ * Adds a version string to the favicon for cache-busting.
+ */
+function wundertheme_html_head_alter(&$elements) {
+  $theme_path = drupal_get_path('theme', 'wundertheme');
+  foreach ($elements as $id => $value) {
+    if (strpos($id, 'favicon') !== FALSE) {
+      $elements[$id] .= '?v=' . md5_file($theme_path . '/favicon.ico');
     }
   }
 }
