@@ -5,9 +5,16 @@
  *
  * This file is compiled into style.css
  */
-
 /* ---------- Compass Extensions ---------- */
 @import 'base/logic/variables';
+// Import Bootstrap Compass integration
+@import 'bootstrap-compass';
+
+// Import custom Bootstrap variables
+@import 'bootstrap-variables';
+
+// Import Bootstrap for Sass
+@import 'bootstrap';
 
 @import 'toolkit';
 @import 'susy';
