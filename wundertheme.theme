@@ -23,10 +23,19 @@ function wundertheme_preprocess_field(&$variables) {
   $variables['renderme'] = FALSE;
   // Are there even items to render?
   if (isset($variables['items'])) {
-    // When rendered, does anything remain?
-    if (strlen(render($variables['items'])) > 0) {
-      // If so, flag for rendering.
-      $variables['renderme'] = TRUE;
+    // Render their content individually.
+    foreach ($variables['items'] as $key => $item) {
+      // Tweaks out on this key for some reason, but only for anonymous users o.O
+      if (isset($item['attributes'])) {
+        unset($item['attributes']);
+      }
+      // Use drupal_render instead of render so it doesn't flag it as already-shown.
+      $rendered = drupal_render($item);
+      // When rendered, does anything remain?
+      if (strlen($rendered) > 0) {
+        // If so, flag for rendering.
+        $variables['renderme'] = TRUE;
+      }
     }
   }
 }
