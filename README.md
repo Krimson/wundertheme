@@ -1,37 +1,28 @@
 wundertheme
 ===========
 
-Wundertheme is a Sass based Drupal starter theme that embodies the Wunderkraut Belgium frontend workflow.
+Wundertheme is a Sass based Drupal starter theme with Bootstrap integration that embodies the Wunderkraut Belgium frontend workflow.
 
 Requirements
 ===========
-To properly work with wundertheme you need: 
+To properly work with wundertheme you need:
 
-- ruby (if you have osx, this is already installed), 
+- Bundler
 
-Ruby 1.9.1 is recommended for best support of gems, 1.9.3 is the latest stable release.
-A good version manager for ruby is RVM. It will save you alot of headaches.
+Build
+=====
+To compile the CSS, simply run the following from the theme root:
 
-Following ruby gems:
+- bundle install && bundle exec compass compile --force
 
-- sass: gem install sass
+Debugging
+=========
+To compile with debugging information, simply specify the environment to be development (defaults to production).
 
-Sass makes CSS fun again. Sass is an extension of CSS3, 
-adding nested rules, variables, mixins, selector inheritance, and more. 
-It's translated to well-formatted, standard CSS using the command line tool or a web-framework plugin.
+- bundle exec compass compile --force --environment=development
 
-- compass: gem install compass
+Deployment
+==========
+To ensure the output is as compact as possible, it is possible to force the output style to compressed (should already be using compressed when using production environment and expanded when using development environment)
 
-Compass is a Sass-based Stylesheet Framework that streamlines the creation and maintainance of CSS.
-
-- toolkit: gem install toolkit
-
-Toolkit for Progressive Enhancement and Responsive Web Design
-
-- susy: gem install susy
-
-Responsive grids for Compass.
-
-- respond-to: gem install respond-to
-
-You've always wanted a nice, natural language way to name and remember your breakpoints, and now you can have it! Introducing Respond-to, a compass extension giving you the power of a Variable Driven respond-to mixin for you to use in your projects now!
+- bundle exec compass compile --force --environment=production --output-style=compressed
