@@ -7,7 +7,9 @@ Requirements
 ===========
 To properly work with wundertheme you need:
 
-- Bundler
+- Ruby (1.8.7)
+- Rubygems (2.2.1)
+- Bundler (1.6.3)
 
 Build
 =====
