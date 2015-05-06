@@ -193,3 +193,15 @@ function wundertheme_html_head_alter(&$elements) {
     }
   }
 }
+
+/**
+ * Implements hook_js_alter().
+ *
+ * Swaps old jQuery with new (IE compatible) jQuery.
+ */
+function wundertheme_js_alter(&$js) {
+  if (isset($js['misc/jquery.js'])) {
+    $path = drupal_get_path('theme', 'wundertheme') . '/js/jquery-1.11.3.min.js';
+    $js['misc/jquery.js']['data'] = $path;
+  }
+}
