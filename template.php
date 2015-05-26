@@ -122,10 +122,10 @@ function wundertheme_preprocess_html(&$variables, $hook) {
  */
 function wundertheme_breadcrumb($variables) {
   $item = menu_get_item();
-  $variables['breadcrumb'][] = drupal_get_title();
   $breadcrumb = $variables['breadcrumb'];
 
   if (!empty($breadcrumb)) {
+    $breadcrumb[] = drupal_get_title();
     // Provide a navigational heading to give context for breadcrumb links to
     // screen-reader users. Make the heading invisible with .element-invisible.
     $output = '<h2 class="element-invisible">' . t('You are here') . '</h2>';
