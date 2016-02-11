@@ -1,7 +1,7 @@
 nav.pager {
   @include full-width;
   padding:20px;
-  border-top:1px solid $gray-lighter;
+  border-top:1px solid $gray;
 
   ul {
     @include outer-container(676px);
@@ -25,7 +25,7 @@ nav.pager {
 
       &.is-active {
         a {
-          color: $gray-light;
+          color: $gray;
         }
       }
     }
