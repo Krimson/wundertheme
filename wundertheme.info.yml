@@ -7,12 +7,17 @@ core: 8.x
 
 regions:
   header: Header
-  navigation: Navigation
-  precontent: Pre-content
   content: Content
-  sidebar: Sidebar
   footer: Footer
-  bottom: Bottom
+  doormat: Doormat
+
+ckeditor_stylesheets:
+  - css/wysiwyg.css
+
+stylesheets-remove:
+  - core/assets/vendor/jquery.ui/themes/base/theme.css
+  - core/assets/vendor/jquery.ui/themes/base/accordion.css
+  - modules/contrib/ds/css/ds-2col.css
 
 libraries:
   - wundertheme/global-styles-and-scripts

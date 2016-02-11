@@ -1,0 +1,53 @@
+// Typography
+
+$font-source-sans: sans-serif;
+$font-crimson-text: serif;
+
+$base-font-family: $font-crimson-text;
+$heading-font-family: $font-source-sans;
+
+// Font Sizes
+$base-font-size: 22px;
+
+// Line height
+$base-line-height: 1.5em;
+
+// Colors
+$white:         #FFFFFF;
+$black:         #000000;
+
+// Responsive
+
+$max-width: 1024px;
+$grid-columns: 12;
+$default-feature: min-width;
+$visual-grid: true;
+$visual-grid-index: front;
+$visual-grid-color: #f3f; //
+
+$mobile: new-breakpoint(min-width 320px);
+$tablet: new-breakpoint(min-width 767px);
+$desktop: new-breakpoint(min-width 1024px);
+$large: new-breakpoint(min-width 1600px);
+$smaller-than-desktop: new-breakpoint(max-width 940px);
+$smaller-than-tablet: new-breakpoint(max-width 696px);
+
+// Font sizes
+
+$h1-size: 24px;
+$h2-size: 26px;
+$h3-size: 24px;
+$h4-size: 20px;
+
+/*
+**  Line heights are equal to font size except for H3,
+**  which is 5px larger, due to serif and lowercase font.
+*/
+
+$increment: 3; //pixels
+
+/*
+**  Increment represents increase in font size from mobile to desktop.
+*/
+
+// Animations

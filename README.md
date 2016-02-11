@@ -1,30 +1,22 @@
 wundertheme
 ===========
 
-Wundertheme is a Sass based Drupal starter theme with Bootstrap integration that embodies the Wunderkraut Belgium frontend workflow.
+Wunderkraut Belgium starter theme.
 
 Requirements
 ===========
-To properly work with wundertheme you need:
 
-- Ruby (1.8.7)
-- Rubygems (2.2.1)
-- Bundler (1.6.3)
+- [npm => 2.10.0](https://nodejs.org)
+- gulp-cli => 1.2.0 `$ npm install -g gulp-cli@1.2.0`
 
 Build
 =====
-To compile the CSS, simply run the following from the theme root:
+The default task is set up for production builds, so simply running `$ gulp` should compile and compress everything needed.
 
-- bundle install && bundle exec compass compile --force
-
-Debugging
+Development
 =========
-To compile with debugging information, simply specify the environment to be development (defaults to production).
-
-- bundle exec compass compile --force --environment=development
+For use during active development, run `$ gulp dev`. This will run a watcher and host a browsersync proxy for testing on multiple devices.
 
 Deployment
 ==========
-To ensure the output is as compact as possible, it is possible to force the output style to compressed (should already be using compressed when using production environment and expanded when using development environment)
-
-- bundle exec compass compile --force --environment=production --output-style=compressed
+See build.
