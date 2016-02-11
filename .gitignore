@@ -1,2 +1,6 @@
 .settings/org.eclipse.php.core.prefs
 .idea
+node_modules
+css/
+js/scripts.js
+js/maps/
