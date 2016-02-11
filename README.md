@@ -7,7 +7,8 @@ Requirements
 ===========
 
 - [npm => 2.10.0](https://nodejs.org)
-- gulp-cli => 1.2.0 `$ npm install -g gulp-cli@1.2.0`
+- bower => 1.7.2 `$ sudo npm install -g bower@1.7.2`
+- gulp-cli => 1.2.0 `$ sudo npm install -g gulp-cli@1.2.0`
 
 Build
 =====
