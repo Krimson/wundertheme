@@ -1,0 +1,130 @@
+@import "../mmenu/jquery.mmenu.all";
+
+
+//	Colors
+$mm_backgroundColor                  : $real-white;
+$mm_borderColor					             : $gray-lighter;
+$mm_dimmedTextColor				           : $gray-light;
+$mm_emphasizedBackgroundColor	       : $gray-lighter;
+$mm_highlightedBackgroundColor	     : $real-white;
+$mm_textColor					               : $black;
+
+//	Sizes
+$mm_btnSize                          : 46px;
+$mm_fontSize		                     : 16px;
+
+
+@import "../mmenu/jquery.mmenu.oncanvas";
+
+.mm-menu {
+  @include font(sans, 16);
+
+  &.mm-hasnavbar-top-1 {
+    .mm-panels {
+      top: 45px;
+    }
+  }
+
+  .mm-navbar {
+    background: $black;
+    text-align: left;
+
+    a {
+      color: $white !important;
+
+      &.mm-btn:before {
+        border-color: $white !important;
+      }
+    }
+  }
+
+  .mm-navbar {text-align: center;}
+
+  .mm-next {
+    &:before {border-left: 0 !important;}
+  }
+
+}
+
+
+// Add background color to content so no overlapping with Mobile menu can be seen
+.main-content {
+  background-color: $white;
+}
+
+// Activate mobile menu, hide navigation
+#block-main-navigation {
+
+  @include media($smaller-than-desktop) {
+    display: none !important;
+  }
+}
+
+// Hide mobile menu, show navigation
+#mm-block-main-navigation,
+.mmenu-collapse {
+
+  @include media($desktop) {
+    display: none !important;
+  }
+}
+
+// Hamburger icon
+.mmenu-collapse {
+  color: $black;
+  width: 60px;
+  height: 60px;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  float: right;
+  span {display: none;}
+
+  &:hover {
+    @extend .inverted;
+  }
+
+  .active {
+    display: none;
+  }
+
+  .mm-opened & {
+    background: $gray;
+    color: $white;
+  }
+
+  // hamburger icon
+  &:before {
+    content: '\e806';
+    font-family: "fontello";
+    display: inline-block;
+    width: 60px;
+    height:60px;
+    text-align: center;
+    font-size: 22px;
+    line-height: 60px;
+    vertical-align: top;
+
+    @include media($tablet) {
+      font-size: 22px;
+      height: 72px;
+      line-height: 72px;
+    }
+
+    // close icon
+    .mm-opened & {
+      font-size:34px;
+      content: '\e807';
+
+      @include media($tablet) {
+        font-size: 34px;
+        line-height: 68px;
+      }
+    }
+  }
+
+  @include media($tablet) {
+    width: 72px;
+    height: 72px;
+  }
+}
