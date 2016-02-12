@@ -11,9 +11,9 @@ Requirements
 
 Installing node/npm
 ===================
-Debian: `$ curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash - && sudo apt-get install --yes nodejs`
-OSX: get the installer from https://nodejs.org/en/#download
-Windows: errrr...
+- Debian: `$ curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash - && sudo apt-get install --yes nodejs`
+- OSX: get the installer from https://nodejs.org/en/#download
+- Windows: errrr...
 
 Installing dependencies
 =======================
