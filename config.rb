@@ -1,3 +1,8 @@
+require 'rubygems'
+require 'bundler/setup'
+
+require 'bootstrap-sass'
+
 # Require any additional compass plugins here.
 require 'susy'
 require 'toolkit'

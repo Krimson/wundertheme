@@ -22,6 +22,7 @@ regions[footer] = Footer
 
 ;-------------- js -------------
 ;scripts[] = js/retina.js
+scripts[] = js/bootstrap.min.js
 scripts[] = js/scripts.js
 
 breakpoints[all] = (min-width: 0em)
