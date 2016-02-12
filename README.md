@@ -1,37 +1,36 @@
 wundertheme
 ===========
 
-Wundertheme is a Sass based Drupal starter theme that embodies the Wunderkraut Belgium frontend workflow.
+Wunderkraut Belgium starter theme.
 
 Requirements
 ===========
-To properly work with wundertheme you need: 
 
-- ruby (if you have osx, this is already installed), 
+- [npm => 3.6.0](https://nodejs.org) (see below)
+- gulp-cli => 1.2.0 `$ sudo npm install -g gulp-cli@1.2.0`
 
-Ruby 1.9.1 is recommended for best support of gems, 1.9.3 is the latest stable release.
-A good version manager for ruby is RVM. It will save you alot of headaches.
+Installing node/npm
+===================
+- Debian: `$ curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash - && sudo apt-get install --yes nodejs`
+- OSX: get the installer from https://nodejs.org/en/#download
+- Windows: errrr...
 
-Following ruby gems:
+Installing dependencies
+=======================
+Once node (and npm, which comes with it) is installed, run `$ npm install`. This will fetch all required dependencies and put them in a node_modules folder (which should be .gitignor-ed). Running this again doesn't hurt and might be required if any new dependencies were added.
 
-- sass: gem install sass -v 3.2.0
+Development dependencies
+========================
+- bower-installer => 1.1.0 `$ sudo npm install -g bower-installer@1.1.0`
 
-Sass makes CSS fun again. Sass is an extension of CSS3, 
-adding nested rules, variables, mixins, selector inheritance, and more. 
-It's translated to well-formatted, standard CSS using the command line tool or a web-framework plugin.
+Build
+=====
+The default task is set up for production builds, so simply running `$ gulp` should compile and compress everything needed without running a watcher or anything.
 
-- compass: gem install compass -v 0.12.2
+Development
+=========
+For use during active development, run `$ gulp dev`. This will run a watcher and host a browsersync proxy for testing on multiple devices. Newly introduced bower dependencies should be resolved with `$ bower-installer` and the vendor folder should be committed.
 
-Compass is a Sass-based Stylesheet Framework that streamlines the creation and maintainance of CSS.
-
-- toolkit: gem install toolkit -v 1.3.8
-
-Toolkit for Progressive Enhancement and Responsive Web Design
-
-- susy: gem install susy -v 1.0.9
-
-Responsive grids for Compass.
-
-- respond-to: gem install respond-to -v 2.6
-
-You've always wanted a nice, natural language way to name and remember your breakpoints, and now you can have it! Introducing Respond-to, a compass extension giving you the power of a Variable Driven respond-to mixin for you to use in your projects now!
+Deployment
+==========
+See build.

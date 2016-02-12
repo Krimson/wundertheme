@@ -1,0 +1,18 @@
+wundertheme.mobile:
+  label: mobile
+  mediaQuery: '(min-width: 0em)'
+  weight: 2
+  multipliers:
+   - 1x
+wundertheme.narrow:
+  label: narrow
+  mediaQuery: 'all and (min-width: 35em)'
+  weight: 1
+  multipliers:
+    - 1x
+wundertheme.wide:
+  label: wide
+  mediaQuery: 'all and (min-width: 55em)'
+  weight: 0
+  multipliers:
+    - 1x
