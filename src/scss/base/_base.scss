@@ -18,13 +18,3 @@ Contains basic html tags (eg. html, body, ul, p,...)
     box-sizing: border-box;
   }
 }
-
-// Disable outlining
-@if $default-disable-outline {
-  *:active,
-  *:hover,
-  *:focus {
-    outline: 0 !important;
-  }
-}
-
