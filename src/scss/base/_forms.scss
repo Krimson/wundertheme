@@ -5,10 +5,10 @@ FORMS
 ----------------------------------------------------------------------- */
 
 fieldset {
-  background-color: transparent;
-  border: 0;
-  margin: 0;
-  padding: 0;
+  background-color: mg($colors, lighter-gray);
+  border: $base-border;
+  margin: 0 0 $small-spacing;
+  padding: $base-spacing;
 }
 
 legend {
