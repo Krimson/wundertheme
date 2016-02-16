@@ -1,4 +1,0 @@
-/// Fix for flickering carousels
-@mixin no-flick {
-  @include translate3d(0, 0, 0);
-}
