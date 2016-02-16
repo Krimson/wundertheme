@@ -1,7 +1,7 @@
 {
   "name": "Wunderkit",
   "version": "0.0.1",
-  "description": "Wunderkit is a starter kit for scaffolding a web application",
+  "description": "Wunderkraut Belgium scaffolding starter kit.",
   "private": true,
   "devDependencies": {
     "font-awesome": "~4.4.0"
