@@ -6,19 +6,24 @@ Wunderkraut Belgium scaffolding starter kit.
 Requirements
 ------------
 - [npm => 3.6.0](https://nodejs.org)
+- [bower => 1.7.7](http://bower.io)
 
 Installing node/npm
 -------------------
 - Debian: `$ curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash - && sudo apt-get install --yes nodejs`
 - OSX: get the installer from https://nodejs.org/en/#download
 
-Getting started
----------------
-Once node (and npm, which comes with it) is installed, run `$ npm install` from within the project folder. This will fetch all required dependencies and put them in a node_modules folder.
+Installing bower
+-------------------
+- `$ sudo npm install -g bower`
 
 Development dependencies
 ------------------------
-- bower-installer => 1.1.0 `$ sudo npm install -g bower-installer@1.1.0`
+- bower-installer: `$ sudo npm install -g bower-installer`
+
+Getting started
+---------------
+- Run `$ npm install` from within the project folder. This will fetch all required dependencies and put them in a node_modules folder.
 
 Gulp tasks
 ----------
