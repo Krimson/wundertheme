@@ -1,8 +1,6 @@
 /* -----------------------------------------------------------------------
 
-SETTINGS
-
-Default settings
+DEFAULTS
 
 ----------------------------------------------------------------------- */
 
@@ -11,9 +9,6 @@ $default-border-box: true !default;
 
 // Disable outlines
 $default-disable-outline: false !default;
-
-// Remove all lists padding and margins
-$default-clean-lists: true !default;
 
 // Fontawesome path to font
 $fa-font-path: "../../bower_components/font-awesome/fonts";

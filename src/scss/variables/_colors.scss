@@ -5,12 +5,13 @@ COLORS
 ----------------------------------------------------------------------- */
 
 $colors: (
-  white: #FFF,
-  black: #000,
   blue: #1565c0,
-  grid: #F00,
+  dark-gray: #333,
+  medium-gray: #999,
+  light-gray: #ddd,
+  kraut: #e56716,
 );
 
-// base text colors
-$base-font-color: map-get($colors, black);
-$action-color: map-get($colors, blue);
+// Font Colors
+$base-font-color: map-get($colors, dark-gray);
+$action-color: map-get($colors, kraut);
