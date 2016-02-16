@@ -9,13 +9,6 @@ var uglify = require('gulp-uglify');
 var browserSync = require('browser-sync').create();
 
 /**
- * Task when css or js files are changed
- */
-gulp.task('cssjs:reload', ['sass', 'compress'], function () {
-    // Nothing here yet
-});
-
-/**
  * Browsersync
  */
 gulp.task("browser-sync", function () {
@@ -77,7 +70,7 @@ gulp.task('compress', function () {
  */
 gulp.task('watch', function () {
     // watch scss and js
-    gulp.watch(['scss/**/*.scss', 'js/js-src/**/*.js'], ['cssjs:reload']);
+    gulp.watch(['scss/**/*.scss', 'js/js-src/**/*.js'], ['default']);
 });
 
 gulp.task('dev', ['watch', 'compress', 'browser-sync']);
