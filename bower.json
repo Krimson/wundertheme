@@ -1,7 +1,7 @@
 {
-  "name": "Wundertheme",
+  "name": "Wunderkit",
   "version": "0.0.1",
-  "description": "Wundertheme is based on Gulp, Libsass and on the SMACSS and BEM structures.",
+  "description": "Wunderkit is a starter kit for scaffolding a web application",
   "private": true,
   "devDependencies": {
     "font-awesome": "~4.4.0"

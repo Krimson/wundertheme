@@ -1,6 +1,6 @@
 {
   "name": "wunderkit",
-  "description": "Wunderkit is a frontend application scaffolding project.",
+  "description": "Wunderkit is a starter kit for scaffolding a web application.",
   "version": "0.0.1",
   "license": "MIT",
   "dependencies": {

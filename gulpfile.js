@@ -21,19 +21,29 @@ var config = require("./config.json");
 // SASS ERROR LOGGING                                                     //
 // =======================================================================//
 var sassError = function(error) {
-    gutil.colors.black.bgRed('[SASS ERROR]');
-
-    var errorString = ' ' + error.message; // Removes new line at the end
+    var errorString = '' + error.messageOriginal; // Removes new line at the end
 
     // If the error contains the filename or line number add it to the string
-    if(error.fileName)
-        errorString += ' in ' + error.fileName;
+    if(error.file)
+        errorString += ' in ' + error.file;
 
-    if(error.lineNumber)
-        errorString += ' on line ' + error.lineNumber;
+    if(error.line)
+        errorString += ' on line ' + error.line;
 
-    console.error(errorString);
+    if(error.line)
+        errorString += ', column ' + error.column;
+
+    gutil.log(gutil.colors.black.bgRed('[SASS ERROR]') + " - " + errorString);
 }
+
+// =======================================================================//
+// MINIFY CSS                                                             //
+// =======================================================================//
+gulp.task("minify-css", "Minify CSS files for production",  function() {
+    gulp.src(config.path.css + "/*.css")
+        .pipe(cssnano())
+        .pipe(gulp.dest(config.path.css));
+});
 
 // =======================================================================//
 // SASS COMPILE                                                           //
@@ -50,7 +60,7 @@ gulp.task("sass", "Compiles SCSS files to CSS", function () {
                 config.path.bower + config.path.fontAwesome
             ],
             importer: jsonImporter,
-            outputStyle: config.sass.style,
+            outputStyle: "expanded",
         }))
         .on('error', function(err){
             sassError(err);
@@ -60,15 +70,6 @@ gulp.task("sass", "Compiles SCSS files to CSS", function () {
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(config.path.css))
         .pipe(browserSync.stream());
-});
-
-// =======================================================================//
-// MINIFY CSS                                                             //
-// =======================================================================//
-gulp.task("minify-css", "Minify CSS files for production",  function() {
-    gulp.src(config.path.css + "/*.css")
-        .pipe(cssnano())
-        .pipe(gulp.dest(config.path.css));
 });
 
 // =======================================================================//
