@@ -1,21 +1,16 @@
 {
-  "name": "Wundertheme components",
+  "name": "Wundertheme",
   "version": "0.0.1",
-  "description": "Wundertheme basic components",
+  "description": "Wundertheme is based on Gulp, Libsass and on the SMACSS and BEM structures.",
   "private": true,
-  "dependencies": {
-    "normalize.css": "~3.0.2",
-    "jquery": "~2.1.4",
-    "owl.carousel": "OwlCarousel2#~2.0.0-beta.3",
-    "handlebars": "~4.0.5",
-    "tweenlite": "~1.11.5",
-    "gsap": "~1.18.2",
-    "matchHeight": "matchheight#~0.7.0"
+  "devDependencies": {
+    "font-awesome": "~4.4.0"
   },
   "install": {
     "path": {
       "css": "vendor/css",
       "js": "vendor/js"
-    }
+    },
+    "ignore": ["font-awesome"]
   }
 }

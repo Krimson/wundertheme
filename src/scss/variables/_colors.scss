@@ -1,0 +1,14 @@
+// =======================================================================//
+// Colors                                                                 //
+// =======================================================================//
+
+$colors: (
+  white: #FFF,
+  black: #000,
+  blue: #1565c0,
+  grid: #F00,
+);
+
+// base text colors
+$base-font-color: map-get($colors, black);
+$action-color: map-get($colors, blue);

@@ -1,0 +1,15 @@
+/// Add grid layout to direct children of parent & option to add outer-container to parent
+@mixin grid($i, $container: true) {
+  @if $container {
+    @include outer-container();
+  }
+
+  > * {
+    @include span-columns($grid-columns / $i);
+    @include omega(#{$i}n);
+
+    &:nth-child(#{$i}n+1) {
+      clear: both;
+    }
+  }
+}

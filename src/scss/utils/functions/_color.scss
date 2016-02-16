@@ -1,0 +1,9 @@
+/// Returns a transparent black color
+@function black($opacity: .8) {
+  @return rgba(0, 0, 0, $opacity);
+}
+
+/// Returns a transparent white color
+@function white($opacity: .8) {
+  @return rgba(255, 255, 255, $opacity);
+}

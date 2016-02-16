@@ -1,0 +1,18 @@
+// =======================================================================//
+// Settings                                                               //
+// =======================================================================//
+
+// Set true to set the global box-sizing to border-box
+$default-border-box: true !default;
+
+// Set true to use font smoothing
+$default-font-smoothing: true !default;
+
+// Set true to disable the outlines
+$default-disable-outline: false !default;
+
+// Set true to lists of margins and paddings
+$default-clean-lists: true !default;
+
+// Font Awesome path
+$fa-font-path: "../../bower_components/font-awesome/fonts";

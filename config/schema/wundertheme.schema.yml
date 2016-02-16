@@ -1,5 +1,0 @@
-# Schema for the configuration files of the Wundertheme theme.
-
-wundertheme.settings:
-  type: theme_settings
-  label: 'Wundertheme settings'
