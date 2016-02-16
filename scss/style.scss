@@ -11,13 +11,7 @@
 @import "../vendor/css/normalize.css/normalize.css";
 @import "../vendor/css/owl.carousel/owl.carousel.css";
 
-// Import bourbon
-@import "bourbon";
-
-// Import neat
-@import "neat";
-
-// Import base
+// Import base, which imports bourbon and neat.
 @import "base/base";
 
 // Import common

@@ -1,5 +1,7 @@
 // Typography
 
+@import "neat-helpers";
+
 $font-source-sans: sans-serif;
 $font-crimson-text: serif;
 
@@ -20,12 +22,12 @@ $red:           #FF0000;
 
 // Responsive
 
-$max-width: 1024px;
-$grid-columns: 12;
-$default-feature: min-width;
-$visual-grid: true;
-$visual-grid-index: front;
-$visual-grid-color: #f3f; //
+$max-width: 1024px !global;
+$grid-columns: 12 !global;
+$default-feature: min-width !global;
+$visual-grid: false !global;
+$visual-grid-index: front !global;
+$visual-grid-color: #f3f !global; //
 
 $mobile: new-breakpoint(min-width 320px);
 $tablet: new-breakpoint(min-width 767px);

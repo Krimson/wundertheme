@@ -1,6 +1,12 @@
 // Base files
 
+@import "bourbon";
+
+// Need to import variables right before importing neat.
 @import "variables";
+
+@import "neat";
+
 @import "mixins";
 @import "standards";
 @import "fonts";
