@@ -1,6 +1,6 @@
 {
-  "name": "wundertheme",
-  "description": "Wundertheme is based on Gulp, Libsass and on the SMACSS and BEM structures.",
+  "name": "wunderkit",
+  "description": "Wunderkit is a frontend application scaffolding project.",
   "version": "0.0.1",
   "license": "MIT",
   "dependencies": {

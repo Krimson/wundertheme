@@ -1,15 +1,4 @@
-//    ______   __    __  __        _______
-//   /      \ /  |  /  |/  |      /       \
-//  /$$$$$$  |$$ |  $$ |$$ |      $$$$$$$  |
-//  $$ | _$$/ $$ |  $$ |$$ |      $$ |__$$ |
-//  $$ |/    |$$ |  $$ |$$ |      $$    $$/
-//  $$ |$$$$ |$$ |  $$ |$$ |      $$$$$$$/
-//  $$ \__$$ |$$ \__$$ |$$ |_____ $$ |
-//  $$    $$/ $$    $$/ $$       |$$ |
-//   $$$$$$/   $$$$$$/  $$$$$$$$/ $$/
-//
-
-// Gulp and some tools
+// Gulp
 var gulp = require('gulp-help')(require('gulp'));
 var gutil = require("gulp-util");
 var notifier = require('terminal-notifier');
@@ -23,29 +12,33 @@ var sassGlob = require('gulp-sass-glob');
 var jsonImporter = require('node-sass-json-importer');
 var prefix = require("gulp-autoprefixer");
 var sourcemaps = require("gulp-sourcemaps");
-
-// Css
 var cssnano = require('gulp-cssnano');
 
-// Load configuration file
+// Config
 var config = require("./config.json");
 
-// Error Callback
-var errorCallBack = function (error, metadata) {
-    if (error) {
-        // throw error;
-        console.log(error);
-    }
+// =======================================================================//
+// SASS ERROR LOGGING                                                     //
+// =======================================================================//
+var sassError = function(error) {
+    gutil.colors.black.bgRed('[SASS ERROR]');
 
-    console.log(metadata, 'Metadata produced during the build process');
-};
+    var errorString = ' ' + error.message; // Removes new line at the end
 
-// -----------------------------------------------------------------------------
-// SASS -- https://www.npmjs.com/package/gulp-sass
-// SASS GLOBBING -- https://www.npmjs.com/package/gulp-sass-glob
-// -----------------------------------------------------------------------------
+    // If the error contains the filename or line number add it to the string
+    if(error.fileName)
+        errorString += ' in ' + error.fileName;
 
-gulp.task("sass", "Compiles your SCSS files to CSS", function () {
+    if(error.lineNumber)
+        errorString += ' on line ' + error.lineNumber;
+
+    console.error(errorString);
+}
+
+// =======================================================================//
+// SASS COMPILE                                                           //
+// =======================================================================//
+gulp.task("sass", "Compiles SCSS files to CSS", function () {
     return gulp.src(config.path.scss + "/*.scss")
         .pipe(sourcemaps.init())
         .pipe(sassGlob())
@@ -59,12 +52,8 @@ gulp.task("sass", "Compiles your SCSS files to CSS", function () {
             importer: jsonImporter,
             outputStyle: config.sass.style,
         }))
-        .on("error", function (err) {
-            gutil.log(gutil.colors.black.bgRed("SASS ERROR", gutil.colors.red.bgBlack(" " + (err.message.split("  ")[2]))));
-            gutil.log(gutil.colors.black.bgRed("FILE:", gutil.colors.red.bgBlack(" " + (err.message.split("\n")[0]))));
-            gutil.log(gutil.colors.black.bgRed("LINE:", gutil.colors.red.bgBlack(" " + err.line)));
-            gutil.log(gutil.colors.black.bgRed("COLUMN:", gutil.colors.red.bgBlack(" " + err.column)));
-            notifier(err.message.split("\n")[0], { title: "LINE " + err.line });
+        .on('error', function(err){
+            sassError(err);
             return this.emit("end");
         })
         .pipe(prefix(config.autoprefixer))
@@ -73,43 +62,38 @@ gulp.task("sass", "Compiles your SCSS files to CSS", function () {
         .pipe(browserSync.stream());
 });
 
-// -----------------------------------------------------------------------------
-// CSS MINIFY -- https://www.npmjs.com/package/gulp-minify-css
-// -----------------------------------------------------------------------------
-
-gulp.task("css-minify", "Minifies css files for production enviroments",  function() {
+// =======================================================================//
+// MINIFY CSS                                                             //
+// =======================================================================//
+gulp.task("minify-css", "Minify CSS files for production",  function() {
     gulp.src(config.path.css + "/*.css")
         .pipe(cssnano())
         .pipe(gulp.dest(config.path.css));
 });
 
-// -----------------------------------------------------------------------------
-// BROWSERSYNC -- http://www.browsersync.io/docs/gulp/
-// -----------------------------------------------------------------------------
-
-gulp.task("browser-sync", "Set up a server with BrowserSync and test across devices", function() {
+// =======================================================================//
+// BROWSERSYNC                                                            //
+// =======================================================================//
+gulp.task("browser-sync", "Keep multiple browsers & devices in sync when building websites", function() {
     browserSync.init({
         proxy: config.browsersync.proxy,
         notify: false
     });
 });
 
-// -----------------------------------------------------------------------------
-// WATCH
-// -----------------------------------------------------------------------------
-
-gulp.task("watch", "Watches your SASS files", function() {
+// =======================================================================//
+// WATCH FILES                                                            //
+// =======================================================================//
+gulp.task("watch", "Watch SCSS files", function() {
     gulp.watch(config.path.scss + "/**/*.scss", ["sass"]);
 });
 
 // -----------------------------------------------------------------------------
 // DEFAULT TASK
 // -----------------------------------------------------------------------------
+gulp.task("default", gulpSequence("sass", "watch", "browser-sync"));
 
-gulp.task("default", gulpSequence(
-    "sass",
-    //"css-minify",
-    "watch",
-    "browser-sync"
-    )
-);
+// -----------------------------------------------------------------------------
+// COMPILE TASK
+// -----------------------------------------------------------------------------
+gulp.task("compile", gulpSequence("sass", "minify-css"));
