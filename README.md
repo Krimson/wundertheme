@@ -24,8 +24,8 @@ Gulp tasks
 ----------
 The default task is set up for production builds, so simply running `$ gulp` should compile and compress everything needed without running a watcher or anything.
 
-- Default: Runs SASS, Watch and Browsersync
-- Compile: Runs SASS and minifies CSS files (useful for recompiling)
+- Default (gulp): Runs SASS, Watch and Browsersync
+- Compile (gulp compile): Runs SASS and minifies CSS files (useful for recompiling)
 
 Development
 -----------
