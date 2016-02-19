@@ -2,7 +2,7 @@
 
 # Wunderkit
 
-**Wunderkit** is an *opinionated* scaffolding starter kit for web development containing tools for building a great experience across many devices. A solid starting point for quickly scaffolding out a new project.
+**Wunderkit** is an *opinionated* scaffolding starter kit for web development, containing the tools you need for building a great experience across many devices. A solid starting point for anyone looking to quickly get up and running with their next project.
 
 ## Features
 
@@ -19,18 +19,18 @@
 - [bower](http://bower.io)
 - [bower-installer](https://github.com/blittle/bower-installer)
 
-## Installing the requirements
+### Installing the requirements
 
-### Node
+#### Node
 
 - Debian: `$ curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash - && sudo apt-get install --yes nodejs`
 - OSX: get the installer from https://nodejs.org/en/#download
 
-### Bower
+#### Bower
 
 - `$ sudo npm install -g bower`
 
-### Bower-installer
+#### Bower-installer
 
 - `$ sudo npm install -g bower-installer`
 
