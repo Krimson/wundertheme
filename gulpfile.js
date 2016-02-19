@@ -1,18 +1,16 @@
-// Gulp
+// Imports
 var gulp = require('gulp-help')(require('gulp'));
 var gutil = require("gulp-util");
-var notifier = require('terminal-notifier');
-var chalk = require("chalk");
-var browserSync = require('browser-sync').create();
-var gulpSequence = require('gulp-sequence');
-
-// Sass
 var sass = require("gulp-sass");
 var sassGlob = require('gulp-sass-glob');
 var jsonImporter = require('node-sass-json-importer');
-var prefix = require("gulp-autoprefixer");
 var sourcemaps = require("gulp-sourcemaps");
 var cssnano = require('gulp-cssnano');
+var notifier = require('terminal-notifier');
+var chalk = require("chalk");
+var prefix = require("gulp-autoprefixer");
+var browserSync = require('browser-sync').create();
+var gulpSequence = require('gulp-sequence');
 
 // Config
 var config = require("./config.json");
