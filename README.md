@@ -8,7 +8,7 @@
 
 | Feature                                | Summary                                                                                                                                                                                                                                                     |
 |----------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [Gulp](http://gulpjs.com) | Build system automating tasks: minification and copying of all JavaScript files, static images, capable of watching files to automatically rerun the task when a file is updated. |
+| [Gulp](http://gulpjs.com) | Build system automating tasks: compiling and minifying Sass, capable of watching files to automatically rerun the task when a file is updated. |
 | [Bourbon](http://bourbon.io) | Bourbon is a lightweight Sass mixin library tool set that helps you write more effective stylesheets. |
 | [Neat](http://neat.bourbon.io) | A lightweight semantic grid framework for Sass and Bourbon. |
 | [Bitters](http://bitters.bourbon.io) | Scaffold styles, variables and structure for Bourbon projects. |                                                                                                                                          |
