@@ -28,7 +28,7 @@ var sassError = function(error) {
     if(error.line)
         errorString += ' on line ' + error.line;
 
-    if(error.line)
+    if(error.column)
         errorString += ', column ' + error.column;
 
     gutil.log(gutil.colors.black.bgRed('[SASS ERROR]') + " - " + errorString);
