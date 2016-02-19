@@ -1,10 +1,10 @@
+![wunderkit](https://cloud.githubusercontent.com/assets/4246645/13176307/6b50ee08-d711-11e5-8b42-fc0fa9c2ea39.jpg)
+
 # Wunderkit
 
-## Overview
+**Wunderkit** is an *opinionated* scaffolding starter kit for web development containing tools for building a great experience across many devices. A solid starting point for quickly scaffolding out a new project.
 
-[Wunderkit] is an opinionated scaffolding starter kit for web development containing tools for building a great experience across many devices. A solid starting point for quickly scaffolding out a new project.
-
-### Features
+## Features
 
 | Feature                                | Summary                                                                                                                                                                                                                                                     |
 |----------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -44,11 +44,13 @@ From within the project folder:
 * Run `$ bower-installer`: Bower-installer will copy the main js and css files over from the bower_components folder and put them in their respective vendor folder.
 * Run `$ gulp`: This will run a watcher and host a browsersync proxy for testing on multiple devices.
 
-There is a HTML starting point included (index.html), purely to demonstrate the Bitters scaffolding styles.
+There is an HTML starting point included (index.html), to demonstrate the Bitters scaffolding styles.
 
 ## Gulp tasks
 
-The default task is set up for development. Running `$ gulp` will compile your SASS, run a watcher and a browsersync session.
+The default task is set up for development.
+Running `$ gulp` will compile your SASS, run a watcher and a browsersync session.
+
 
 Task  | Description
 ------------- | -------------
