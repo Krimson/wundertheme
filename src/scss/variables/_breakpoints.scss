@@ -9,5 +9,5 @@ Imported from breakpoints.json
 
 // Map breakpoints
 @each $key, $val in $breakpoints {
-  $breakpoints: map-merge($breakpoints, ($key: map-merge($val, (media: new-breakpoint(map-get($val, width), map-get($val, "cols"))))));
+  $breakpoints: map-merge($breakpoints, ($key: map-merge($val, (media: new-breakpoint(map-get($val, width))))));
 }
