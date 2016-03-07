@@ -1,16 +1,6 @@
 {
-  "breakpoints": {
-    "mobile": {
-      "width": "480px"
-    },
-    "tablet": {
-      "width": "768px"
-    },
-    "desktop": {
-      "width": "1170px"
-    },
-    "huge": {
-      "width": "1220px"
-    }
-  }
+  "mobile": "480px",
+  "tablet": "768px",
+  "desktop": "1170px",
+  "huge": "1300px"
 }

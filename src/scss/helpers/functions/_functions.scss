@@ -65,8 +65,3 @@
 @function mds($map, $keys...) {
   @return map-deep-set($map, $keys...);
 }
-
-// map-deep-get function for all breakpoints with the key "media"
-@function med($breakpoint, $breakpoints: $breakpoints) {
-  @return mdg($breakpoints, $breakpoint, "media");
-}

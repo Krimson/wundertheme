@@ -1,13 +1,4 @@
-/*------------------------------------------------------------------
-[Breakpoints]
-
-Imported from breakpoints.json
--------------------------------------------------------------------*/
-
-@import "../../../breakpoints.json";
-@import "neat-helpers";
-
-// Map breakpoints
-@each $key, $val in $breakpoints {
-  $breakpoints: map-merge($breakpoints, ($key: map-merge($val, (media: new-breakpoint(map-get($val, width))))));
-}
+$mobile: 480px;
+$tablet: 768px;
+$desktop: 1170px;
+$huge: 1300px;
