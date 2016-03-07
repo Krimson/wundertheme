@@ -44,7 +44,7 @@ From within the `.npm` folder:
 * Run `$ bower-installer`: Bower-installer will copy the main js and css files over from the bower_components folder and put them in their respective vendor folder.
 * Run `$ gulp`: This will run a watcher and host a browsersync proxy for testing on multiple devices.
 
-There is an HTML starting point included (index.html), to demonstrate the Bitters scaffolding styles.
+An HTML starting point is included (index.html), demonstrating the Bitters scaffolding styles.
 
 ## Gulp tasks
 
