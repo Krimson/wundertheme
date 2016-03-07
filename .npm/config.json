@@ -3,7 +3,6 @@
     "last 3 version",
     "> 2%"
   ],
-
   "path": {
     "scss": "./../src/scss",
     "css": "./../dist/css",
@@ -13,7 +12,6 @@
     "bower": "./bower_components/",
     "fontAwesome": "font-awesome/scss"
   },
-
   "browsersync": {
     "proxy": "http://192.168.50.2/"
   }
