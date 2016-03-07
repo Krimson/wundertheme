@@ -3,7 +3,6 @@ var gulp = require('gulp-help')(require('gulp'));
 var gutil = require("gulp-util");
 var sass = require("gulp-sass");
 var sassGlob = require('gulp-sass-glob');
-var jsonImporter = require('node-sass-json-importer');
 var sourcemaps = require("gulp-sourcemaps");
 var cssnano = require('gulp-cssnano');
 var notifier = require('terminal-notifier');
@@ -59,7 +58,6 @@ gulp.task("sass", "Compiles SCSS files to CSS", function () {
         require("node-normalize-scss").includePaths,
         config.path.bower + config.path.fontAwesome
       ],
-      importer: jsonImporter,
       outputStyle: "expanded",
     }))
     .on('error', function(err){
