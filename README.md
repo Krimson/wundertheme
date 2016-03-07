@@ -59,6 +59,7 @@ Task  | Description
 minify-css | Minifies CSS files for production
 sass | Compiles SCSS files to CSS
 browser-sync | Keep multiple browsers & devices in sync when building websites
+breakpoints | Converts breakpoints.json to SASS file and variables
 watch | Watch files and folders
 
 ## Browser Support
