@@ -38,7 +38,7 @@
 
 Clone this repository and build on what is included in the `src` directory.
 
-From within the project folder:
+From within the `.npm` folder:
 * Run `$ npm install`: This will fetch all required dependencies and put them in a node_modules folder.
 * Run `$ bower install`: This will put all required packages in the bower_components folder.
 * Run `$ bower-installer`: Bower-installer will copy the main js and css files over from the bower_components folder and put them in their respective vendor folder.
