@@ -85,7 +85,7 @@ gulp.task("browser-sync", "Keep multiple browsers & devices in sync when buildin
 /*------------------------------------------------------------------
  [Breakpoints]
  -------------------------------------------------------------------*/
-gulp.task("breakpoints", "Convert breakpoints.json to SASS file and variables", function() {
+gulp.task("convert-breakpoints", "Convert breakpoints.json to SASS file and variables", function() {
   return gulp.src("../breakpoints.json")
     .pipe(jsonToSass({
       jsonPath: '../breakpoints.json',
@@ -102,7 +102,7 @@ gulp.task("watch", "Watch SCSS files", function() {
   });
 
   // Watch breakpoints file
-  gulp.watch('../breakpoints.json', ['breakpoints']);
+  gulp.watch('../breakpoints.json', ['convert-breakpoints']);
 });
 
 /*------------------------------------------------------------------
