@@ -108,9 +108,9 @@ gulp.task("watch", "Watch SCSS files", function() {
 /*------------------------------------------------------------------
  [Default task]
  -------------------------------------------------------------------*/
-gulp.task("default", gulpSequence("breakpoints", "sass", "watch", "browser-sync"));
+gulp.task("default", gulpSequence("convert-breakpoints", "sass", "watch", "browser-sync"));
 
 /*------------------------------------------------------------------
  [Compile task]
  -------------------------------------------------------------------*/
-gulp.task("compile", gulpSequence("sass", "minify-css"));
+gulp.task("compile", gulpSequence("convert-breakpoints", "sass", "minify-css"));
