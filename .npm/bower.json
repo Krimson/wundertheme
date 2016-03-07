@@ -8,8 +8,8 @@
   },
   "install": {
     "path": {
-      "css": "vendor/css",
-      "js": "vendor/js"
+      "css": "../vendor/css",
+      "js": "../vendor/js"
     },
     "ignore": ["font-awesome"]
   }
