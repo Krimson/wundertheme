@@ -5,12 +5,12 @@
   ],
 
   "path": {
-    "scss": "./src/scss",
-    "css": "./dist/css",
-    "js": "./dist/js",
-    "dist": "./dist",
-    "src": "./src",
-    "bower": "bower_components/",
+    "scss": "./../src/scss",
+    "css": "./../dist/css",
+    "js": "./../dist/js",
+    "dist": "./../dist",
+    "src": "./../src",
+    "bower": "./bower_components/",
     "fontAwesome": "font-awesome/scss"
   },
 

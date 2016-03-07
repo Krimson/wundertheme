@@ -19,7 +19,8 @@
     "node-neat": "^1.7.2 ",
     "node-normalize-scss": "^1.0.3",
     "node-sass-json-importer": "^1.0.2",
-    "terminal-notifier": "^0.1.2"
+    "terminal-notifier": "^0.1.2",
+    "gulp-watch": "^4.3.5"
   },
   "repository": {
     "type": "git",
