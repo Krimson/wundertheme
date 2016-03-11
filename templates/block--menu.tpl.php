@@ -61,7 +61,7 @@ if ($classes) {
 }
 ?>
 
-<nav <?php print $classes .  $attributes; ?> role="navigation">
+<nav <?php print $classes .  $attributes; ?>>
 
   <?php print render($title_prefix); ?>
     <?php if ($block->subject): ?>

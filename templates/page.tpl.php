@@ -81,7 +81,7 @@
  */
 ?>
 <div class="page">
-  <header role="banner">
+  <header>
     <div class="container">
 
       <?php if ($logo): ?>
@@ -131,7 +131,7 @@
       </aside>
     <?php endif; ?>
 
-    <div role="main" class="main">
+    <div class="main">
 
       <?php if($page['highlighted']){ ?>
         <?php print render($page['highlighted']); ?>
@@ -168,7 +168,7 @@
     <?php endif; ?>
   </div>
   <?php if ($page['footer']): ?>
-    <footer role="contentinfo">
+    <footer>
       <div class="container">
         <?php print render($page['footer']); ?>
       </div>
