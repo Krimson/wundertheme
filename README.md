@@ -1,30 +1,78 @@
-wundertheme
-===========
+![wunderkit](https://cloud.githubusercontent.com/assets/4246645/13176307/6b50ee08-d711-11e5-8b42-fc0fa9c2ea39.jpg)
 
-Wundertheme is a Sass based Drupal starter theme with Bootstrap integration that embodies the Wunderkraut Belgium frontend workflow.
+# Wunderkit
 
-Requirements
-===========
-To properly work with wundertheme you need:
+**Wunderkit** is an *opinionated* scaffolding starter kit for web development, containing the tools you need for building a great experience across many devices. A solid starting point for anyone looking to quickly get up and running with their next project.
 
-- Ruby (1.8.7)
-- Rubygems (2.2.1)
-- Bundler (1.6.3)
+## Features
 
-Build
-=====
-To compile the CSS, simply run the following from the theme root:
+| Feature                                | Summary                                                                                                                                                                                                                                                     |
+|----------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [Gulp](http://gulpjs.com) | Build system automating tasks: compiling and minifying Sass, capable of watching files to automatically rerun the task when a file is updated. |
+| [Bourbon](http://bourbon.io) | Bourbon is a lightweight Sass mixin library tool set that helps you write more effective stylesheets. |
+| [Neat](http://neat.bourbon.io) | A lightweight semantic grid framework for Sass and Bourbon. |
+| [Bitters](http://bitters.bourbon.io) | Scaffold styles, variables and structure for Bourbon projects. |                                                                                                                                          |
 
-- bundle install && bundle exec compass compile --force
+## Requirements
 
-Debugging
-=========
-To compile with debugging information, simply specify the environment to be development (defaults to production).
+- [npm](https://nodejs.org)
+- [bower](http://bower.io)
+- [bower-installer](https://github.com/blittle/bower-installer)
 
-- bundle exec compass compile --force --environment=development
+### Installing the requirements
 
-Deployment
-==========
-To ensure the output is as compact as possible, it is possible to force the output style to compressed (should already be using compressed when using production environment and expanded when using development environment)
+#### Node
 
-- bundle exec compass compile --force --environment=production --output-style=compressed
+- Debian: `$ curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash - && sudo apt-get install --yes nodejs`
+- OSX: get the installer from https://nodejs.org/en/#download
+
+#### Bower
+
+- `$ sudo npm install -g bower`
+
+#### Bower-installer
+
+- `$ sudo npm install -g bower-installer`
+
+## Quickstart
+
+Clone this repository and build on what is included in the `src` directory.
+
+From within the project folder:
+* Run `$ npm install`: This will fetch all required dependencies and put them in a node_modules folder.
+* Run `$ bower install`: This will put all required packages in the bower_components folder.
+* Run `$ bower-installer`: Bower-installer will copy the main js and css files over from the bower_components folder and put them in their respective vendor folder.
+* Run `$ gulp`: This will run a watcher and host a browsersync proxy for testing on multiple devices.
+
+There is an HTML starting point included (index.html), to demonstrate the Bitters scaffolding styles.
+
+## Gulp tasks
+
+The default task is set up for development.
+Running `$ gulp` will compile your SASS, run a watcher and a browsersync session.
+
+
+Task  | Description
+------------- | -------------
+**default (gulp)**  | Runs `sass`, `watch` and `browsersync` tasks
+**compile** | Runs `sass` and `minify-css` tasks
+minify-css | Minifies CSS files for production
+sass | Compiles SCSS files to CSS
+browser-sync | Keep multiple browsers & devices in sync when building websites
+watch | Watch files and folders
+
+## Browser Support
+
+At present, wunderkit supports the last two versions of the following browsers out of the box:
+
+* Chrome
+* Edge
+* Firefox
+* Safari
+* Opera
+* Internet Explorer 9+
+
+## License
+
+MIT
+Copyright 2016 - Wunderkraut Benelux

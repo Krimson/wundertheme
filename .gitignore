@@ -1,5 +1,5 @@
-.settings/org.eclipse.php.core.prefs
-.idea
+# Ignore node packages.
+.npm/node_modules
 
-# Ignore sass-cache files.
-*.sass-cache*
+# Ignore bower components
+.npm/bower_components

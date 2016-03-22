@@ -1,8 +1,0 @@
-source 'https://rubygems.org'
-gem 'execjs', '~>2.4.0'
-gem 'sass', '~>3.2.0'
-gem 'compass', '~>0.12.2'
-gem 'susy', '~>1.0.9'
-gem 'toolkit', '~>1.3.8'
-gem 'respond-to', '~>2.6'
-gem 'bootstrap-sass', '>=3.3.1'

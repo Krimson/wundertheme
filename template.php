@@ -5,21 +5,30 @@
  */
 
 /**
- * Implements hook_form_FORM_ID_alter().
- *
- * Adds a placeholder to the search block.
+ * Implements hook_html_head_alter().
  */
-function wundertheme_form_search_block_form_alter(&$form, &$form_state, $form_id) {
-  $form['search_block_form']['#attributes']['placeholder'] = t('Search…');
+function wundertheme_html_head_alter(&$head_elements) {
+  // HTML5 charset declaration.
+  $head_elements['system_meta_content_type']['#attributes'] = array(
+    'charset' => 'utf-8',
+  );
+
+  // Optimize mobile viewport.
+  $head_elements['mobile_viewport'] = array(
+    '#type' => 'html_tag',
+    '#tag' => 'meta',
+    '#attributes' => array(
+      'name' => 'viewport',
+      'content' => 'width=device-width, initial-scale=1',
+    ),
+  );
 }
 
 /**
  * Implements hook_css_alter().
  */
 function wundertheme_css_alter(&$css) {
-
-  /* Remove some default Drupal css */
-  $exclude = array(
+  $exclude = [
     'modules/aggregator/aggregator.css' => FALSE,
     'modules/block/block.css' => FALSE,
     'modules/book/book.css' => FALSE,
@@ -50,88 +59,35 @@ function wundertheme_css_alter(&$css) {
     'modules/tracker/tracker.css' => FALSE,
     'modules/update/update.css' => FALSE,
     'modules/user/user.css' => FALSE,
-  );
+    'sites/all/modules/contrib/ckeditor/css/ckeditor.css' => FALSE,
+    'sites/all/modules/contrib/panels/css/panels.css' => FALSE,
+    'sites/all/modules/contrib/views/css/views.css' => FALSE,
+    'sites/all/modules/contrib/ctools/css/ctools.css' => FALSE,
+  ];
 
   $css = array_diff_key($css, $exclude);
 
-  /* Get rid of some default panel css */
+  // Remove panels css
+  $panels_exclude = [
+    'attentia_twocol_stacked',
+    'attentia_onecol_stacked'
+  ];
+
   foreach ($css as $path => $meta) {
-    if (strpos($path, 'threecol_33_34_33_stacked') !== FALSE || strpos($path, 'threecol_25_50_25_stacked') !== FALSE) {
-      unset($css[$path]);
+    foreach ($panels_exclude as $exclude) {
+      if (strpos($path, $exclude) !== FALSE) {
+        unset($css[$path]);
+      }
     }
   }
-}
 
-/**
- * Override or insert variables into the html template.
- *
- * @param $variables
- *   An array of variables to pass to the theme template.
- * @param $hook
- *   The name of the template being rendered. This is usually "html", but can
- *   also be "maintenance_page" since zen_preprocess_maintenance_page() calls
- *   this function to have consistent variables.
- */
-function wundertheme_preprocess_html(&$variables, $hook) {
-
-  $theme_path = drupal_get_path('theme', 'wundertheme');
-
-  drupal_add_css( $theme_path . '/stylesheets/ie.css',
-    array(
-      'group' => CSS_THEME,
-      'browsers' => array(
-        'IE' => 'lt IE 9',
-        '!IE' => FALSE,
-      ),
-      'weight' => 999,
-      'every_page' => TRUE,
-      'media' => 'screen, projection'
-    )
-  );
-  drupal_add_css( $theme_path . '/stylesheets/style.css',
-    array(
-      'group' => CSS_THEME,
-      'browsers' => array(
-        'IE' => 'gt IE 8',
-        '!IE' => TRUE,
-      ),
-      'weight' => 999,
-      'every_page' => TRUE,
-      'media' => 'screen, projection'
-    )
-  );
-  drupal_add_css( $theme_path . '/stylesheets/print.css',
-    array(
-      'group' => CSS_THEME,
-      'weight' => 999,
-      'every_page' => TRUE,
-      'media' => 'print'
-    )
-  );
-  $variables['favicon'] = base_path() . $theme_path . '/favicon.ico?v=' . md5_file($theme_path . '/favicon.ico');
-}
-
-/**
- * Implements theme_breadcrumb()
- *
- * Return a themed breadcrumb trail.
- *
- * @param $breadcrumb
- *   An array containing the breadcrumb links.
- * @return a string containing the breadcrumb output.
- */
-function wundertheme_breadcrumb($variables) {
-  $item = menu_get_item();
-  $breadcrumb = $variables['breadcrumb'];
-
-  if (!empty($breadcrumb)) {
-    $breadcrumb[] = drupal_get_title();
-    // Provide a navigational heading to give context for breadcrumb links to
-    // screen-reader users. Make the heading invisible with .element-invisible.
-    $output = '<h2 class="element-invisible">' . t('You are here') . '</h2>';
-    $output .= '<div class="breadcrumb">' . implode(' > ', $breadcrumb) . '</div>';
-
-    return $output;
+  // Force css files to "link"
+  foreach ($css as $key => $value) {
+    if (file_exists($value['data'])) {
+      // This option forces embeding with a link element.
+      // Needed so browsersync will behave
+      $css[$key]['preprocess'] = FALSE;
+    }
   }
 }
 
@@ -181,27 +137,20 @@ function wundertheme_preprocess_button(&$variables) {
 }
 
 /**
- * Implements hook_html_head_alter().
- *
- * Adds a version string to the favicon for cache-busting.
- */
-function wundertheme_html_head_alter(&$elements) {
-  $theme_path = drupal_get_path('theme', 'wundertheme');
-  foreach ($elements as $id => $value) {
-    if (strpos($id, 'favicon') !== FALSE) {
-      $elements[$id] .= '?v=' . md5_file($theme_path . '/favicon.ico');
-    }
-  }
-}
-
-/**
  * Implements hook_js_alter().
  *
- * Swaps old jQuery with new (IE compatible) jQuery.
+ * Moves scripts to footer
+ * For new jquery version, the jQuery update module should be used
  */
 function wundertheme_js_alter(&$js) {
-  if (isset($js['misc/jquery.js'])) {
-    $path = drupal_get_path('theme', 'wundertheme') . '/js/jquery-1.11.3.min.js';
-    $js['misc/jquery.js']['data'] = $path;
+  // Collect the scripts we want in to remain in the header scope.
+  $header_scripts = [];
+
+  // Change the default scope of all other scripts to footer.
+  // We assume if the script is scoped to header it was done so by default.
+  foreach ($js as $key => &$script) {
+    if ($script['scope'] == 'header' && !in_array($script['data'], $header_scripts)) {
+      $script['scope'] = 'footer';
+    }
   }
 }
