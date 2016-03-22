@@ -66,21 +66,7 @@ function wundertheme_css_alter(&$css) {
   ];
 
   $css = array_diff_key($css, $exclude);
-
-  // Remove panels css
-  $panels_exclude = [
-    'attentia_twocol_stacked',
-    'attentia_onecol_stacked'
-  ];
-
-  foreach ($css as $path => $meta) {
-    foreach ($panels_exclude as $exclude) {
-      if (strpos($path, $exclude) !== FALSE) {
-        unset($css[$path]);
-      }
-    }
-  }
-
+  
   // Force css files to "link"
   foreach ($css as $key => $value) {
     if (file_exists($value['data'])) {
