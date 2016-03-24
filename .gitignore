@@ -1,9 +1,5 @@
-.settings/org.eclipse.php.core.prefs
-.idea
-node_modules/
-bower_components/
-css/
-js/scripts.js
-js/maps/
-!vendor/css
-!vendor/js
+# Ignore node packages.
+.npm/node_modules
+
+# Ignore bower components
+.npm/bower_components
