@@ -1,0 +1,40 @@
+/*------------------------------------------------------------------
+[Neat settings]
+
+Override the default neat grid settings
+-------------------------------------------------------------------*/
+
+@import "neat-helpers";
+
+// Sets the relative width of a single grid column. The unit used should be the same one used to define `$gutter`.
+$column: modular-scale(3, 1em, $golden);
+
+// Sets the relative width of a single grid gutter. The unit used should be the same one used to define `$column`.
+$gutter: modular-scale(1, 1em, $golden);
+
+// Sets the total number of columns in the grid. Its value can be overridden inside a media query using the `media()` mixin.
+$grid-columns: 12;
+
+// Sets the max-width property of the element that includes `outer-container()`.
+$max-width: 1200px;
+
+// When set to true, it sets the box-sizing property of all elements to `border-box`.
+$border-box-sizing: true;
+
+// Sets the default [media feature] that `media()` and `new-breakpoint()` revert to when only a breakpoint value is passed.
+$default-feature: min-width;
+
+// Sets the default layout direction of the grid. Can be `LTR` or `RTL`. Set with a `!global` flag.
+$default-layout-direction: LTR;
+
+/// Displays the visual grid when set to true
+$visual-grid: false;
+
+// Sets the visual grid color
+$visual-grid-color: map-get($colors, grid);
+
+// Sets the z-index property of the visual grid. Can be back (behind content) or front (in front of content).
+$visual-grid-index: front;
+
+// Sets the opacity property of the visual grid
+$visual-grid-opacity: .1;
