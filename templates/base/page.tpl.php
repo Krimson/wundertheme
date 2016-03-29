@@ -98,7 +98,7 @@
     </section>
   <?php endif; ?>
 
-  <main role="main" class="outer-wrapper">
+  <main class="outer-wrapper">
     <?php if (!empty($page['sidebar_first'])): ?>
       <aside id="sidebar-first" role="complementary" class="sidebar">
         <?php print render($page['sidebar_first']); ?>
@@ -134,7 +134,7 @@
   </main>
 
   <?php if (!empty($page['footer'])): ?>
-    <footer id="site-footer" role="contentinfo">
+    <footer id="site-footer">
       <?php if (!empty($page[')'])): ?>
         <section class="footer">
           <?php print render($page[')']); ?>
