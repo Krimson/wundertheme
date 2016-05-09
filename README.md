@@ -19,7 +19,7 @@ In the theme root directory run:
 git clone https://github.com/Stalski/starterkit-wundertheme-patternlab starterkit
 ```
 
-In the `starterkit` directory run:
+In the `starterkit/.npm` directory run:
 
 ```sh
 npm install
