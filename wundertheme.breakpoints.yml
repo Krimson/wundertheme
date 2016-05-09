@@ -1,0 +1,24 @@
+wundertheme.mobile:
+  label: xsmall
+  mediaQuery: '(min-width: 480px)'
+  weight: 1
+  multipliers:
+   - 1x
+wundertheme.tablet:
+  label: small
+  mediaQuery: '(min-width: 768px)'
+  weight: 2
+  multipliers:
+   - 1x
+wundertheme.desktop:
+  label: medium
+  mediaQuery: '(min-width: 960px)'
+  weight: 3
+  multipliers:
+   - 1x
+wundertheme.huge:
+  label: large
+  mediaQuery: '(min-width: 1200px)'
+  weight: 4
+  multipliers:
+   - 1x

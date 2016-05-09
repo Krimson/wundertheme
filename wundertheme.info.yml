@@ -1,0 +1,16 @@
+name: Wundertheme
+description: Drupal 8 starter theme by Wunderkraut Belgium
+type: theme
+package: Wunderkraut
+screenshot: screenshot.png
+core: 8.x
+
+regions:
+  header: Header
+  sidebar_first: Sidebar first
+  content: Content
+  sidebar_second: Sidebar second
+  footer: Footer
+
+libraries:
+  - wundertheme/global-styles-and-scripts

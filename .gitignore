@@ -3,3 +3,6 @@
 
 # Ignore bower components
 .npm/bower_components
+
+# Ignore local files
+.DS_Store
