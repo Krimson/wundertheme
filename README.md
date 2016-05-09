@@ -19,7 +19,7 @@ In the theme root directory run:
 git clone https://github.com/Stalski/starterkit-wundertheme-patternlab starterkit
 ```
 
-In the `starterkit` directory run:
+In the `starterkit/.npm` directory run:
 
 ```sh
 npm install
@@ -43,7 +43,7 @@ In the theme root directory run:
 git clone https://github.com/pattern-lab/edition-php-drupal-standard pattern-lab
 ```
 
-In the `pattern-lab/.npm` directory run:
+In the `pattern-lab` directory run:
 
 ```sh
 composer install
