@@ -43,7 +43,7 @@ In the theme root directory run:
 git clone https://github.com/pattern-lab/edition-php-drupal-standard pattern-lab
 ```
 
-In the `pattern-lab` directory run:
+In the `pattern-lab/.npm` directory run:
 
 ```sh
 composer install
