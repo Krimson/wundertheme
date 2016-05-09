@@ -35,7 +35,7 @@ Please note that the contents of the `css`, `images` and `templates/patterns` di
 
 ## Integrating with Pattern Lab
 
-Prerequisites: Shila Drupal Theme StarterKit and [Composer](https://getcomposer.org/) installed.
+Prerequisites: Wundertheme Drupal Theme StarterKit and [Composer](https://getcomposer.org/) installed.
 
 In the theme root directory run:
 
