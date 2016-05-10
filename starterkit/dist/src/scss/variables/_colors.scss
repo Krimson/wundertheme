@@ -1,0 +1,16 @@
+/*------------------------------------------------------------------
+[Colors]
+-------------------------------------------------------------------*/
+
+$colors: (
+  blue: #1565c0,
+  dark-gray: #333,
+  medium-gray: #999,
+  light-gray: #ddd,
+  lighter-gray: #efefef,
+  kraut: #e56716,
+);
+
+// Font Colors
+$base-font-color: map-get($colors, dark-gray);
+$action-color: map-get($colors, kraut);

@@ -1,0 +1,18 @@
+{
+  "autoprefixer": [
+    "last 3 version",
+    "> 2%"
+  ],
+  "path": {
+    "scss": "./../src/scss",
+    "css": "./../dist/dist/css",
+    "js": "./../dist/dist/js",
+    "dist": "./../dist/dist",
+    "src": "./../dist/src",
+    "bower": "./bower_components/",
+    "fontAwesome": "font-awesome/scss"
+  },
+  "browsersync": {
+    "proxy": "http://192.168.50.2/"
+  }
+}

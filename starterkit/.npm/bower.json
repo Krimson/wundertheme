@@ -1,0 +1,16 @@
+{
+  "name": "Wunderkit",
+  "version": "0.0.1",
+  "description": "Wunderkraut Belgium scaffolding starter kit.",
+  "private": true,
+  "devDependencies": {
+    "font-awesome": "~4.4.0"
+  },
+  "install": {
+    "path": {
+      "css": "../vendor/css",
+      "js": "../vendor/js"
+    },
+    "ignore": ["font-awesome"]
+  }
+}

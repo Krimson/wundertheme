@@ -1,0 +1,18 @@
+/*------------------------------------------------------------------
+[Grid classes]
+-------------------------------------------------------------------*/
+
+.row {
+  @include row();
+}
+
+.container {
+  @include outer-container();
+}
+
+// Generate col classes
+@for $i from 1 through $grid-columns {
+  .col-#{$i} {
+    @include span-columns($i);
+  }
+}

@@ -1,0 +1,31 @@
+/*------------------------------------------------------------------
+[Master stylesheet]
+
+SMACSS [Scalable Modular Architecture for CSS]
+Reference: http://smacss.com/
+
+Categorizing:
+
+1. Base  - Defaults elements, attribute selectors, pseudo-class selectors styling [example: body, form, a]
+2. Layout  - Divide the page into sections [example: header, footer]
+3. Modules - Reusable, Modular parts of design [example: sidebar, popup]
+-------------------------------------------------------------------*/
+
+@charset "UTF-8";
+
+// Bourbon, neat, helpers and variables
+@import "bourbon";
+@import "variables/variables";
+@import "neat";
+@import "helpers/functions/functions";
+
+// Base
+@import "normalize";
+@import "font-awesome";
+@import "base/tables";
+
+// Modules
+@import "modules/**/*";
+
+// Layout
+@import "layout/layout";

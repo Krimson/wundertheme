@@ -1,0 +1,10 @@
+# Deny local files/folders
+.idea
+.DS_Store
+
+# Ignore node packages.
+.npm/node_modules
+
+# Ignore bower components
+.npm/bower_components
+
