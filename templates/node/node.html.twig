@@ -82,7 +82,8 @@
     <footer>
       {{ author_picture }}
       <div{{ author_attributes }}>
-        {% trans %}Submitted by {{ author_name|passthrough }} on {{ date|passthrough }}{% endtrans %}
+        <span class="author">{{ 'Written by'|t }} {{ name }}</span>
+        <span class="date"><?{{ 'On the'|t }} <time>{{ date }}</time></span>
         {{ metadata }}
       </div>
     </footer>
