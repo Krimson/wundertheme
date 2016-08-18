@@ -8,6 +8,23 @@
 use Drupal\Core\Url;
 
 /**
+ * Helpers
+ */
+function _wk_is_front() {
+  $front = FALSE;
+
+  // An exception might be thrown.
+  try {
+    $front = \Drupal::service('path.matcher')->isFrontPage();
+  }
+  catch (Exception $e) {
+    // If the database is not yet available, set the default value.
+    $front = FALSE;
+  }
+  return $front;
+}
+
+/**
  * Implements template_preprocess_html().
  * @param array $variables
  */
@@ -38,7 +55,106 @@ function wundertheme_preprocess_html(&$variables) {
 }
 
 /**
- * Implements template_preprocess_node.
- * @param array $variables
+ * Implements hook_page_attachments_alter().
  */
-function STARTER_preprocess_node(&$variables) {}
+function wundertheme_page_attachments_alter(&$attachments) {
+  // Generate icons and manifest before uncommenting.
+  // _wundertheme_page_attachments_icons($attachments);
+}
+
+/**
+ * Helper function for generating mobile icons.
+ */
+function _wundertheme_page_attachments_icons(&$attachments) {
+  // Prep various shortcut icons.
+  $icons = [
+    'android' => [
+      'properties' => [
+        'rel' => 'icon',
+        'type' => 'image/png',
+      ],
+      'sizes' => [
+        '192x192',
+        '144x144',
+        '96x96',
+        '72x72',
+        '48x48',
+        '36x36',
+      ]
+    ],
+    'apple'   => [
+      'properties' => [
+        'rel' => 'apple-touch-icon',
+      ],
+      'sizes' => [
+        '180x180',
+        '152x152',
+        '144x144',
+        '120x120',
+        '114x114',
+        '76x76',
+        '72x72',
+        '60x60',
+        '57x57',
+      ],
+    ],
+    'none'    => [
+      'properties' => [
+        'rel' => 'icon',
+        'type' => 'image/png',
+      ],
+      'sizes' => [
+        '96x96',
+        '32x32',
+        '16x16',
+      ]
+    ],
+    'ms'      => [
+      'properties' => [
+        'name' => 'msapplication-TileImage',
+        'rel' => 'icon',
+        'href' => '', // Empty href so Drupal's processor wouldn't freak out.
+      ],
+      'sizes' => [
+        '310x310',
+        '150x150',
+        '144x144',
+        '70x70',
+      ],
+    ],
+  ];
+  $path = base_path() . drupal_get_path('theme', 'wundertheme');
+
+  if (isset($attachments['#attached']) && isset($attachments['#attached']['html_head_link'])) {
+    foreach ($icons as $provider => $iconset) {
+      // Default attribute type.
+      $href = 'href';
+      // Prep provider token.
+      $prov = $provider . '-';
+      // Exception for Microsoft icons.
+      if ($provider === 'ms') {
+        $href = 'content';
+      }
+      // Exception for regular icons, reset provider token.
+      else if ($provider === 'none') {
+        $prov = '';
+      }
+      // Loop over sizes and prep data array.
+      foreach ($iconset['sizes'] as $size) {
+        $data = [];
+        // Loop over properties and stuff them in data array.
+        foreach ($iconset['properties'] as $propKey => $propValue) {
+          $data[$propKey] = $propValue;
+        }
+        // Put the size in there.
+        $data['sizes'] = $size;
+        // The actual link to the icon.
+        $data[$href] = $path . '/' . $prov . 'icon-' . $size . '.png';
+        // Add it to the head.
+        $attachments['#attached']['html_head_link'][] = [$data, TRUE];
+      }
+    }
+    // Add manifest file.
+    $attachments['#attached']['html_head_link'][] = [[ 'rel' => 'manifest', 'href' => $path . '/manifest.json' ], TRUE];
+  }
+}

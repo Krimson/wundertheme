@@ -5,7 +5,7 @@ global-styles-and-scripts:
       dist/css/main.css: {}
       dist/css/print.css: { media: print }
   js:
-    js/scripts.js: {}
+    dist/js/scripts.js: {}
   dependencies:
     - core/jquery
     - core/jquery.once

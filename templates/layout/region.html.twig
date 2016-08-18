@@ -15,8 +15,14 @@
  * @ingroup themeable
  */
 #}
+{%
+  set classes = [
+    'region',
+    'region-' ~ region|clean_class,
+  ]
+%}
 {% if content %}
-    <div class="{{ attributes.class }}"{{ attributes }}>
-        {{ content }}
-    </div>
+  <div{{ attributes.addClass(classes) }}>
+    {{ content }}
+  </div>
 {% endif %}
