@@ -63,6 +63,7 @@ sass | Compiles SCSS files to CSS
 browser-sync | Keep multiple browsers & devices in sync when building websites
 convert-breakpoints | Converts breakpoints.json to SASS file and variables
 watch | Watch files and folders
+favicons | Generated mobile favicons based on the logo (run once and commit result)
 
 ## Browser Support
 

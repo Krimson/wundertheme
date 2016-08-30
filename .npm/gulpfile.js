@@ -1,18 +1,19 @@
 // Imports
 var gulp = require('gulp-help')(require('gulp'));
-var gutil = require("gulp-util");
-var sass = require("gulp-sass");
+var gutil = require('gulp-util');
+var sass = require('gulp-sass');
 var sassGlob = require('gulp-sass-glob');
-var sourcemaps = require("gulp-sourcemaps");
+var sourcemaps = require('gulp-sourcemaps');
 var cssnano = require('gulp-cssnano');
 var notifier = require('terminal-notifier');
-var chalk = require("chalk");
-var prefix = require("gulp-autoprefixer");
+var chalk = require('chalk');
+var prefix = require('gulp-autoprefixer');
 var browserSync = require('browser-sync').create();
 var gulpSequence = require('gulp-sequence');
 var watch = require('gulp-watch');
 var jsonToSass = require('gulp-json-to-sass');
-var notify = require("gulp-notify");
+var notify = require('gulp-notify');
+var favicons = require('gulp-favicons');
 
 // Config
 var config = require("./config.json");
@@ -91,6 +92,22 @@ gulp.task("convert-breakpoints", "Convert breakpoints.json to SASS file and vari
           jsonPath: '../breakpoints.json',
           scssPath: config.path.scss + "/variables/_breakpoints.scss"
       }));
+});
+
+/*------------------------------------------------------------------
+ [Favicons]
+ -------------------------------------------------------------------*/
+gulp.task("favicons", "Convert logo to mobile favicons", function() {
+    return gulp.src('../logo.svg').pipe(favicons({
+        appName: 'Wundertheme',
+        appDescription: 'Wunderkraut BE starter theme',
+        developerName: 'Wunderkraut Benelux',
+        developerURL: 'http://wunderkraut.be',
+        background: '#fff',
+        path: 'favicons/',
+        version: '0.1'
+    }))
+    .pipe(gulp.dest('../dist/assets/favicons/'));
 });
 
 /*------------------------------------------------------------------
