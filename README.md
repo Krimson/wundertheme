@@ -43,6 +43,7 @@ From within the `.npm` folder:
 * Run `$ bower install`: This will put all required packages in the bower_components folder.
 * Run `$ bower-installer`: Bower-installer will copy the main js and css files over from the bower_components folder and put them in their respective vendor folder.
 * Run `$ gulp`: This will run a watcher and host a browsersync proxy for testing on multiple devices.
+* Optional: Run `$ gulp compile` to run a quick compilation with production settings.
 
 An HTML starting point is included (index.html), demonstrating the Bitters scaffolding styles.
 
@@ -54,8 +55,9 @@ Running `$ gulp` will compile your SASS, run a watcher and a browsersync session
 
 Task  | Description
 ------------- | -------------
-**default (gulp)**  | Runs `sass`, `watch` and `browsersync` tasks
+**default (gulp)**  | Runs `serve` task
 **compile** | Runs `sass` and `minify-css` tasks
+**serve** | Runs `sass`, `watch` and `browsersync` tasks
 minify-css | Minifies CSS files for production
 sass | Compiles SCSS files to CSS
 browser-sync | Keep multiple browsers & devices in sync when building websites

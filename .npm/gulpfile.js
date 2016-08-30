@@ -12,6 +12,7 @@ var browserSync = require('browser-sync').create();
 var gulpSequence = require('gulp-sequence');
 var watch = require('gulp-watch');
 var jsonToSass = require('gulp-json-to-sass');
+var notify = require("gulp-notify");
 
 // Config
 var config = require("./config.json");
@@ -67,7 +68,8 @@ gulp.task("sass", "Compiles SCSS files to CSS", function () {
         .pipe(prefix(config.autoprefixer))
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(config.path.css))
-        .pipe(browserSync.stream());
+        .pipe(browserSync.stream())
+        .pipe(notify({ message: 'Styles task complete' }));
 });
 
 /*------------------------------------------------------------------
@@ -106,9 +108,14 @@ gulp.task("watch", "Watch SCSS files", function() {
 /*------------------------------------------------------------------
  [Default task]
 -------------------------------------------------------------------*/
-gulp.task("default", gulpSequence("convert-breakpoints", "sass", "watch", "browser-sync"));
+gulp.task("default", gulpSequence("serve"));
 
 /*------------------------------------------------------------------
  [Compile task]
 -------------------------------------------------------------------*/
 gulp.task("compile", gulpSequence("convert-breakpoints", "sass", "minify-css"));
+
+/*------------------------------------------------------------------
+ [Serve task]
+-------------------------------------------------------------------*/
+gulp.task("serve", gulpSequence("convert-breakpoints", "sass", "watch", "browser-sync"));
