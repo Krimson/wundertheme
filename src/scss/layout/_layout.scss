@@ -100,3 +100,13 @@ body {
     padding: 3em 30px;
   }
 }
+
+// Sticky footer.
+body > .page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  > footer {
+    flex: 1;
+  }
+}
