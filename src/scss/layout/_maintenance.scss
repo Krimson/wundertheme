@@ -1,0 +1,13 @@
+.maintenance-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+  .maintenance-page-wrapper {
+    flex: 0 1 auto;
+  }
+  header {
+    @include outer-container;
+  }
+}
