@@ -3,3 +3,8 @@
 
 # Ignore bower components
 .npm/bower_components
+
+# Ignore visual test screenshots except baseline ones
+.npm/screenshots/*/*.diff.png
+.npm/screenshots/*/*.fail.png
+.npm/failures/
