@@ -14,6 +14,7 @@ var watch = require('gulp-watch');
 var jsonToSass = require('gulp-json-to-sass');
 var notify = require('gulp-notify');
 var favicons = require('gulp-favicons');
+var phantomcss = require('gulp-phantomcss');
 
 // Config
 var config = require("./config.json");
@@ -81,6 +82,49 @@ gulp.task("browser-sync", "Keep multiple browsers & devices in sync when buildin
         proxy: config.browsersync.proxy,
         notify: false
     });
+});
+
+gulp.task("proxy-start", "Silently set up proxy for testing.", function() {
+    browserSync.init({
+        proxy: config.browsersync.proxy,
+        notify: false,
+        open: false,
+        ui: false,
+        files: './../stylesheets/*.css'
+    });
+});
+
+gulp.task("proxy-kill", "Kill browserSync proxy.", ['phantomcss-desktop', 'phantomcss-mobile'], function() {
+    browserSync.exit();
+});
+
+/*------------------------------------------------------------------
+ [PhantomCSS]
+ -------------------------------------------------------------------*/
+gulp.task('phantomcss-desktop', function() {
+  return gulp.src('./tests/testsuite.js')
+  .pipe(phantomcss({
+    screenshots: 'screenshots/desktop',
+    failedComparisonRoot: 'screenshots/failure/desktop',
+    viewportSize: [1400, 1100],
+    prefixCount: true
+  }))
+  .pipe(notify({message: 'Visual test for desktop complete'}));
+});
+
+gulp.task('phantomcss-mobile', function() {
+  return gulp.src('./tests/testsuite.js')
+  .pipe(phantomcss({
+    screenshots: 'screenshots/mobile',
+    failedComparisonRoot: 'screenshots/failure/mobile',
+    viewportSize: [320, 600],
+    prefixCount: true
+  }))
+  .pipe(notify({message: 'Visual test for mobile complete'}));
+});
+
+gulp.task('visual-test', 'Visual regression testing.', ['proxy-start'], function() {
+  gulp.start('phantomcss-desktop', 'phantomcss-mobile', 'proxy-kill');
 });
 
 /*------------------------------------------------------------------
