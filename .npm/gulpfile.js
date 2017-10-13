@@ -36,7 +36,7 @@ var sassError = function(error) {
         errorString += ', column ' + error.column;
 
     gutil.log(gutil.colors.black.bgRed('[SASS ERROR]') + " - " + errorString);
-}
+};
 
 /*------------------------------------------------------------------
  [Minify CSS]
@@ -51,6 +51,27 @@ gulp.task("minify-css", "Minify CSS files for production",  function() {
  [Compile SASS]
 -------------------------------------------------------------------*/
 gulp.task("sass", "Compiles SCSS files to CSS", function () {
+    return gulp.src(config.path.scss + "/*.scss")
+        .pipe(sourcemaps.init())
+        .pipe(sassGlob())
+        .pipe(sass({
+            includePaths: [
+                require("node-bourbon").includePaths,
+                require("node-neat").includePaths[1],
+                require("node-normalize-scss").includePaths,
+                config.path.bower + config.path.fontAwesome
+            ],
+            outputStyle: "expanded",
+        }))
+        .on('error', function(err){
+            sassError(err);
+            return this.emit("end");
+        })
+        .pipe(prefix(config.autoprefixer))
+        .pipe(sourcemaps.write())
+        .pipe(gulp.dest(config.path.css));
+});
+gulp.task("sass-dev", "Compiles SCSS files to CSS with browserSync and notify support", function () {
     return gulp.src(config.path.scss + "/*.scss")
         .pipe(sourcemaps.init())
         .pipe(sassGlob())
@@ -159,7 +180,7 @@ gulp.task("favicons", "Convert logo to mobile favicons", function() {
 -------------------------------------------------------------------*/
 gulp.task("watch", "Watch SCSS files", function() {
     watch(config.path.scss + "/**/*.scss", {src: config.path.scss}, function(){
-        gulp.start("sass");
+        gulp.start("sass-dev");
     });
 
     // Watch our breakpoints
@@ -179,4 +200,4 @@ gulp.task("compile", gulpSequence("convert-breakpoints", "sass", "minify-css"));
 /*------------------------------------------------------------------
  [Serve task]
 -------------------------------------------------------------------*/
-gulp.task("serve", gulpSequence("convert-breakpoints", "sass", "watch", "browser-sync"));
+gulp.task("serve", gulpSequence("convert-breakpoints", "sass-dev", "watch", "browser-sync"));
