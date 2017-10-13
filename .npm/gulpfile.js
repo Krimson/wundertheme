@@ -48,26 +48,48 @@ gulp.task("minify-css", "Minify CSS files for production",  function() {
  [Compile SASS]
  -------------------------------------------------------------------*/
 gulp.task("sass", "Compiles SCSS files to CSS", function () {
-  return gulp.src(config.path.scss + "/*.scss")
-    .pipe(sourcemaps.init())
-    .pipe(sassGlob())
-    .pipe(sass({
-      includePaths: [
-        require("node-bourbon").includePaths,
-        require("node-neat").includePaths[1],
-        require("node-normalize-scss").includePaths,
-        config.path.bower + config.path.fontAwesome
-      ],
-      outputStyle: "expanded",
-    }))
-    .on('error', function(err){
-      sassError(err);
-      return this.emit("end");
-    })
-    .pipe(prefix(config.autoprefixer))
-    .pipe(sourcemaps.write())
-    .pipe(gulp.dest(config.path.css))
-    .pipe(browserSync.stream());
+    return gulp.src(config.path.scss + "/*.scss")
+        .pipe(sourcemaps.init())
+        .pipe(sassGlob())
+        .pipe(sass({
+            includePaths: [
+                require("node-bourbon").includePaths,
+                require("node-neat").includePaths[1],
+                require("node-normalize-scss").includePaths,
+                config.path.bower + config.path.fontAwesome
+            ],
+            outputStyle: "expanded",
+        }))
+        .on('error', function(err){
+            sassError(err);
+            return this.emit("end");
+        })
+        .pipe(prefix(config.autoprefixer))
+        .pipe(sourcemaps.write())
+        .pipe(gulp.dest(config.path.css));
+});
+gulp.task("sass-dev", "Compiles SCSS files to CSS with browserSync and notify support", function () {
+    return gulp.src(config.path.scss + "/*.scss")
+        .pipe(sourcemaps.init())
+        .pipe(sassGlob())
+        .pipe(sass({
+            includePaths: [
+                require("node-bourbon").includePaths,
+                require("node-neat").includePaths[1],
+                require("node-normalize-scss").includePaths,
+                config.path.bower + config.path.fontAwesome
+            ],
+            outputStyle: "expanded",
+        }))
+        .on('error', function(err){
+            sassError(err);
+            return this.emit("end");
+        })
+        .pipe(prefix(config.autoprefixer))
+        .pipe(sourcemaps.write())
+        .pipe(gulp.dest(config.path.css))
+        .pipe(browserSync.stream())
+        .pipe(notify({ message: 'Styles task complete' }));
 });
 
 /*------------------------------------------------------------------
@@ -112,3 +134,8 @@ gulp.task("default", gulpSequence("convert-breakpoints", "sass", "watch", "brows
  [Compile task]
  -------------------------------------------------------------------*/
 gulp.task("compile", gulpSequence("convert-breakpoints", "sass", "minify-css"));
+
+/*------------------------------------------------------------------
+ [Serve task]
+-------------------------------------------------------------------*/
+gulp.task("serve", gulpSequence("convert-breakpoints", "sass-dev", "watch", "browser-sync"));
